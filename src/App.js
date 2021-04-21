@@ -1,12 +1,16 @@
 import React from 'react'
 import './App.css';
-import Users from './components/UsersComponent'
+// import Users from './components/UsersComponent'
+import { Provider } from "react-redux";
+import store from "./store";
+import Home from "./Home";
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <Users />
-    </div>
+    <Provider store={store}>
+      <Home />
+    </Provider>
   );
 }
 
