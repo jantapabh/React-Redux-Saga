@@ -7,6 +7,7 @@ function* getApiData(action){
     try {
         //do api call
         const data = yield call(fetchData);
+        console.log(data);
         yield put(receiveApiData(data));
 
     }catch(e){
@@ -15,5 +16,8 @@ function* getApiData(action){
 }
 
 export default function* mySaga(){
-    yield takeLatest(REQUEST_API_DATA, getApiData);
+    // Does not allow concurrent fetches of users 
+    yield takeEvery(REQUEST_API_DATA, getApiData);
+     // Allows concurrent fetches of users   
+    // yield takeEvery(LOAD_USERS_LOADING, getApiData);
 }

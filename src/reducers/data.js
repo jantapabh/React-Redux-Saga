@@ -1,11 +1,13 @@
-import { RECEIVE_API_DATA, REQUEST_API_DATA } from '../actions'
+import { RECEIVE_API_DATA, REQUEST_API_DATA, } from '../actions'
 
-export default (state = {}, { type, data }) => {
-    switch(type)
-    {
+// const initialState = { data: {}, loading: false, error: '' };
+
+
+export default (state = {}, { type, data, }) => {
+    switch (type) {
         case RECEIVE_API_DATA:
             return data;
-        default: 
-        return state;
+        default:
+            return state;
     }
 }

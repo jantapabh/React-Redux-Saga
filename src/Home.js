@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux'
-import { requestApiData } from './actions'
+import { requestApiData, receiveApiData } from './actions'
 import './Home.css'
 
 class Home extends Component {
@@ -23,9 +23,9 @@ class Home extends Component {
     render() {
 
         const { results = [] } = this.props.data
-        console.log('result ---> ', results);
+        console.log('result ---> ', this.props.data);
 
-        return results.length ? (
+        return results.length  ? (
             <div className="home-container">
                 {results.map(this.person)}
             </div>
